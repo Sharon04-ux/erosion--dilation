@@ -1,79 +1,74 @@
-# Implementation-of-Erosion-and-Dilation
-## Aim
+Exp-9-Implementation-of-Erosion-and-Dilation
+Aim
 To implement Erosion and Dilation using Python and OpenCV.
-## Software Required
-1. Anaconda - Python 3.7
-2. OpenCV
-## Algorithm:
-### Step1:
-<br>
 
+Software Required
+Anaconda - Python 3.7
+OpenCV
+Algorithm:
+Step 1:
+Import necessary libraries, including OpenCV (cv2) and Matplotlib (plt), to load, manipulate, and display images.
 
-### Step2:
-<br>
+Step 2:
+Use cv2.putText() to add text to the image at a specific location with chosen font, size, color, and thickness.
 
-### Step3:
-<br>
+Step 3:
+Define a structuring element using cv2.getStructuringElement() to specify the shape and size for morphological transformations.
 
-### Step4:
-<br>
+Step 4:
+Apply erosion to the image using cv2.erode() with the structuring element to shrink white regions and reduce noise.
 
-### Step5:
-<br>
+Step 5:
+Dilate the eroded image using cv2.dilate() with the structuring element to expand white regions and enhance features.
 
- 
-## Program:
+Step 6:
+Display the original and processed images using plt.imshow() with proper axis configuration and titles for comparison.
 
-``` Python
-# Import the necessary packages
+Step 7:
+Finalize by calling plt.show() to display all images in a single figure for easy visualization and comparison.
 
+REG NO: 212224100056
+NAME : SHARON ARUL BHARATHI J.F.
+Program:
+Import the necessary packages
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+image = np.zeros((500, 500, 3), dtype="uint8")
+Create the Text using cv2.putText
+text = "SHARON"
+font = cv2.FONT_HERSHEY_SIMPLEX
+cv2.putText(image, text, (50, 150), font, 2, (255, 255, 255), 3)
+Create the structuring element
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
 
+Original image
 
-# Create the Text using cv2.putText
+image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+plt.imshow(image_rgb)
+plt.title("Original Image")
+plt.axis("off")
+Erode the image
+eroded_image = cv2.erode(image, kernel, iterations=1)
+eroded_image_rgb = cv2.cvtColor(eroded_image, cv2.COLOR_BGR2RGB)
+plt.imshow(eroded_image_rgb)
+plt.title("Eroded Image")
+plt.axis("off")
+Dilate the image
+dilated_image = cv2.dilate(image, kernel, iterations=1)
+dilated_image_rgb = cv2.cvtColor(dilated_image, cv2.COLOR_BGR2RGB)
+plt.imshow(dilated_image_rgb)
+plt.title("Dilated Image")
+plt.axis("off")
+Output:
+Display the input Image
+<img width="405" height="426" alt="image" src="https://github.com/user-attachments/assets/06240a88-0c4e-42ef-8f7b-5f07b5385a96" />
 
+Display the Eroded Image
+<img width="413" height="428" alt="image" src="https://github.com/user-attachments/assets/4957285b-c543-4bd4-9a05-cd4be65ccc2e" />
 
+Display the Dilated Image>
+<img width="412" height="428" alt="image" src="https://github.com/user-attachments/assets/b5e63db0-8465-4b4b-955e-6d3acab91cfb" />
 
-# Create the structuring element
-
-
-
-# Erode the image
-
-
-
-
-# Dilate the image
-
-
-
-
-
-```
-## Output:
-
-### Display the input Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-### Display the Eroded Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-### Display the Dilated Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Result
+Result
 Thus the generated text image is eroded and dilated using python and OpenCV.
